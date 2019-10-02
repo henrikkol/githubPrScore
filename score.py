@@ -10,18 +10,8 @@ for user in users:
     score = len(req.json()['prs'])
     userName = req.json()['username']
     leaderBoard.setdefault(userName, score)
-    print(userName + ' ' + score.__str__())
-
-print(leaderBoard.get('henrikkol'))
 
 sorted_x = sorted(leaderBoard.items(), key=operator.itemgetter(1), reverse=True)
 
-print("sorted list: ")
-print(sorted_x.pop(1))
-#
-# leaderBoardSorted = sorted(leaderBoard, key=leaderBoard.get, reverse=True)
-#
-# for i in leaderBoardSorted:
-#     print(leaderBoardSorted)
-#
-# # print(leaderBoardSorted.__getitem__(1))
+for k, v in sorted_x:
+    print(v, k)
